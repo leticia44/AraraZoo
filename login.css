@@ -1,0 +1,50 @@
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 45px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 45px;
+    background-color: #BFCFF9;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.buttonLog {
+
+        width: 40%;
+        padding: 10px;
+        border-radius: 45px;
+        background-color: #2E57C0;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 45px;
+        cursor: pointer;
+        height: 40px;
+        width: 100px;
+        justify-content: center; 
+        align-items: center;
+        margin-left: 46%;
+}
+
+
+.notification {
+    background: red;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link-wrapper{
+align-items: center;
+display: flex;
+align-items: center;
+justify-content: center;
+}

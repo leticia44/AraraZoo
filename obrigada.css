@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* define a altura do container como 100% da altura da tela */
+}
+
+.imgNP {
+    max-width: 100%; 
+    height: auto; /* mantém a proporção da imagem */
+}
