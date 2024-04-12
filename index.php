@@ -112,7 +112,6 @@
     <button class="adicionar-carrinho" onclick="adicionarProduto('ingresso inteiro', 90.00)"></button>
 
     <button class="adicionar-carrinho1" onclick="adicionarProduto('ingresso estudante', 45.00)"></button>
-
     <script>
   
 

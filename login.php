@@ -7,18 +7,19 @@ if (empty($_POST['email']) || empty($_POST['senha'])) {
     exit();
 }
 
-$email = mysqli_real_escape_string($conexao, $_POST['email']);
-$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+$email = $_POST['email'];
+$senha = md5($_POST['senha']);
 
-$query = "SELECT nome FROM usuario WHERE email = '{$email}' AND senha = MD5('{$senha}')";
+$query = "SELECT nome FROM loginPessoal WHERE email = :email AND senha = :senha";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':senha', $senha);
+$stmt->execute();
 
-$result = mysqli_query($conexao, $query);
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$row = mysqli_num_rows($result);
-
-if ($row == 1) {
-    $usuario_bd = mysqli_fetch_assoc($result);
-    $_SESSION['nome'] = $usuario_bd['nome'];
+if ($result) {
+    $_SESSION['nome'] = $result['nome'];
     header('Location: painel.php');
     exit();
 } else {
@@ -27,3 +28,4 @@ if ($row == 1) {
     exit();
 }
 ?>
+

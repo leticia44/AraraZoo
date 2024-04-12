@@ -17,10 +17,12 @@ include_once("templates/header.php");
     margin-top: 20px;
 }
 </style>
+
+
     <?php
     if (isset($_SESSION['nao_autenticado'])) :
     ?>
-        <div class="notification">
+        <div class="notification is-danger">
             <p>ERRO: Usuário ou senha inválidos.</p>
         </div>
     <?php

@@ -1,0 +1,47 @@
+body {
+    font-family: 'Jura', sans-serif;
+    font-size: 18px;
+}
+
+#contato {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 570px;
+    height: auto;
+}
+
+#logo {
+    width: 560px;
+    margin-left: 80px;
+}
+
+#container {
+    position: relative;
+    width: 50px;
+    margin-left: 700px;
+    top: -150px;
+    
+}
+
+#telefone,
+#gmail {
+    width: 50px;
+    margin-bottom: 30px;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    white-space: nowrap;
+}
+
+h2:first-child {
+    margin-top: 15px;
+}
+
+
+h2:nth-child(2) {
+    margin-top: 40px;
+}

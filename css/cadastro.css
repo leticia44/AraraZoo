@@ -1,0 +1,75 @@
+
+.forms{
+    margin-left: 300px;
+    top: 0; /* Adjusted this line */
+    width: 800px;
+    margin-top: 20px; /* Adjusted this line */
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto; /* Center the form */
+    
+}
+.forms{
+    margin: 20px auto; /* Center the form */
+    display: flex;
+    justify-content: space-between;
+}
+
+.forms1 {
+    padding: 10px;
+    margin-top: 7px;
+    display: block;
+    margin-bottom: -5px;
+    background-color: #BFCFF9;
+    border-radius: 15px;
+    font-size: 16px;
+    border: none;
+    width: 300px;
+    
+    
+  }
+
+  .forms2 {
+    padding: 10px;
+    margin-top: -0px;
+    display: block;
+    margin-bottom: -5px;
+    background-color: #BFCFF9;
+    border-radius: 15px;
+    font-size: 16px;
+    border: none;
+    width: 100px;
+    
+  }
+
+
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    padding: 10px;
+    border-radius: 45px;
+    background-color: #2E57C0;
+    color:white;
+    text-align: center;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 100px;
+   
+  
+   
+}
+
+button:hover {
+    background-color: #1C386D; /* Mudar a cor de fundo ao passar o mouse sobre o botão */
+}
+h2 {
+    font-size: 24px;
+    font-family: 'Jura', sans-serif;
+   
+  }
+ 

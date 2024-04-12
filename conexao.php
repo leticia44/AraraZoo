@@ -1,7 +1,9 @@
 <?php
-define('HOST', '127.0.0.1');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('DB', 'login');
-
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
+    try {
+        // Substitua 'caminho/para/seu/banco/de/dados.db' pelo caminho real do seu arquivo de banco de dados SQLite
+        $pdo = new PDO('login.db');
+    } catch (PDOException $e) {
+        echo "Erro!: " . $e->getMessage();
+        die();
+    }
+?>

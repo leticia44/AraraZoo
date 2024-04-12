@@ -33,6 +33,12 @@ include_once("templates/header.php");
 
             <h2>Número:</h2>
             <input name="numero" type="text" class="forms2">
+            <h2>cidade:</h2>
+            <input name="cidade" type="text" class="forms2">
+            <h2>uf:</h2>
+            <input name="uf" type="text" class="forms2">
+            
+
 
         </div>
         <div>
@@ -42,7 +48,7 @@ include_once("templates/header.php");
             <h2>Rua:</h2>
             <input name="rua" type="text" class="forms1"> <br>
             <h2>Telefone:</h2>
-            <input name="telefone" type="text" class="forms1"><br>
+            <input name="contato" type="text" class="forms1"><br>
             <h2>Senha:</h2>
             <input name="senha" class="forms1" type="password"><br>
         </div>

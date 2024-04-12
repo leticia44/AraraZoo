@@ -2,19 +2,24 @@
 session_start();
 include("conexao.php");
 
-$nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
-$email = mysqli_real_escape_string($conexao, trim($_POST['email']));
-$cpf = mysqli_real_escape_string($conexao, trim($_POST['cpf']));
-$cep = mysqli_real_escape_string($conexao, trim($_POST['cep']));
-$numero = mysqli_real_escape_string($conexao, trim($_POST['numero']));
-$complemento = mysqli_real_escape_string($conexao, trim($_POST['complemento']));
-$rua = mysqli_real_escape_string($conexao, trim($_POST['rua']));
-$telefone = mysqli_real_escape_string($conexao, trim($_POST['telefone']));
-$senha = mysqli_real_escape_string($conexao, trim(md5($_POST['senha'])));
+$nome = $_POST['nome'];
+$cpf = $_POST['cpf'];
+$contato = $_POST['contato'];
+$email = $_POST['email'];
+$rua = $_POST['rua'];
+$numero = $_POST['numero'];
+$complemento = $_POST['complemento'];
+$cep = $_POST['cep'];
+$cidade = $_POST['cidade'];
+$uf = $_POST['uf'];
+$senha = md5($_POST['senha']);
 
-$sql_check_user = "SELECT COUNT(*) AS total FROM usuario WHERE email = '$email'";
-$result_check_user = mysqli_query($conexao, $sql_check_user);
-$row_check_user = mysqli_fetch_assoc($result_check_user);
+// Verifica se o usuário já existe
+$sql_check_user = "SELECT COUNT(*) AS total FROM loginPessoal WHERE email = :email";
+$stmt_check_user = $pdo->prepare($sql_check_user);
+$stmt_check_user->bindParam(':email', $email);
+$stmt_check_user->execute();
+$row_check_user = $stmt_check_user->fetch(PDO::FETCH_ASSOC);
 
 if ($row_check_user['total'] == 1) {
     $_SESSION['usuario_existe'] = true;
@@ -22,15 +27,26 @@ if ($row_check_user['total'] == 1) {
     exit;
 }
 
-$sql_insert_user = "INSERT INTO usuario (nome, email, cpf, cep, numero, complemento, rua, telefone, senha, data_cadastro) VALUES ('$nome', '$email', '$cpf', '$cep', '$numero', '$complemento', '$rua', '$telefone', '$senha', NOW())";
+// Insere o novo usuário
+$sql_insert_user = "INSERT INTO loginPessoal (nome, cpf, contato, email, rua, numero, complemento, cep, cidade, uf, senha) VALUES (:nome, :cpf, :contato, :email, :rua, :numero, :complemento, :cep, :cidade, :uf, :senha)";
+$stmt_insert_user = $pdo->prepare($sql_insert_user);
+$stmt_insert_user->bindParam(':nome', $nome);
+$stmt_insert_user->bindParam(':cpf', $cpf);
+$stmt_insert_user->bindParam(':contato', $contato);
+$stmt_insert_user->bindParam(':email', $email);
+$stmt_insert_user->bindParam(':rua', $rua);
+$stmt_insert_user->bindParam(':numero', $numero);
+$stmt_insert_user->bindParam(':complemento', $complemento);
+$stmt_insert_user->bindParam(':cep', $cep);
+$stmt_insert_user->bindParam(':cidade', $cidade);
+$stmt_insert_user->bindParam(':uf', $uf);
+$stmt_insert_user->bindParam(':senha', $senha);
 
-if ($conexao->query($sql_insert_user) === TRUE) {
+if ($stmt_insert_user->execute()) {
     $_SESSION['status_cadastro'] = true;
 } else {
-    echo "Error: " . $sql_insert_user . "<br>" . $conexao->error;
+    echo "Error: " . $sql_insert_user . "<br>" . $stmt_insert_user->errorInfo();
 }
-
-$conexao->close();
 
 header('Location: cadastro.php');
 exit;

@@ -1,6 +1,7 @@
 
 <?php
 include_once("templates/header.php");
+include_once("conexao.php");
 
 ?>
 
@@ -28,6 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Calcular o preço total
     $preco = $numberOfDays * $dailyRate;
 
+    
+    // Inserir dados no banco de dados
+    $sql = "INSERT INTO reservas (checkIn, checkOut, pacote, dailyRate, numberOfDays, preço)
+            VALUES ('$checkIn', '$checkOut', '$pacote', '$dailyRate', '$numberOfDays', '$preco')";
+
+    if ($conexao->query($sql) === TRUE) {
+        echo "";
+    } else {
+        echo "" . $conexao->error;
+    }
+    
+
     // Exibir detalhes da reserva
     echo "<div class='reservation-details'>";
 
@@ -44,16 +57,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "</div>";
 
 
-    //  botão "Continuar" para redirecionar pra carrinho.php
+    // Botão "Continuar para o Carrinho" para redirecionar para carrinho.php
     echo "<form method='post' action='carrinho.php'>";
     echo "<input type='hidden' name='checkIn' value='$checkIn'>";
     echo "<input type='hidden' name='checkOut' value='$checkOut'>";
     echo "<input type='hidden' name='pacote' value='$pacote'>";
     echo "<input type='hidden' name='dailyRate' value='$dailyRate'>";
-    echo "<input type='hidden' name='numberOfDays' value='$numberOfDays'>";
+    echo "<form method='post' action='carrinho.php'>";
     echo "<input type='hidden' name='preco' value='$preco'>";
-    echo "<button type='submit'>Continuar</button>";
+    echo "<button type='submit'>Continuar para o Carrinho</button>";
     echo "</form>";
+    
 
 } else {
     header("Location: quartocasal.php");

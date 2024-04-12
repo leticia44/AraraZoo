@@ -20,3 +20,20 @@ CREATE TABLE  `login`.`usuario` (
 INSERT INTO `usuario` (`usuario_id`, `nome`, `email`, `cpf`, `cep`, `numero`, `complemento`, `rua`, `telefone`, `usuario`, `senha`, `data_cadastro`) 
 VALUES (1, 'Canal TI', 'canalti@example.com', '123.456.789-01', '12345678', 12345, 'Complemento', 'Rua Principal', '12345678901', 'canalti', '10f722b5984a49bce67d434464fae37e', '2019-01-11 19:42:12');
 
+
+CREATE TABLE `reservas` (
+  `id` int(3) NOT NULL  AUTO_INCREMENT,
+  `checkIn` date NOT NULL,
+  `checkOut` date NOT NULL,
+  `pacote` varchar(10) NOT NULL,
+  `dailyRate` decimal(10,0) NOT NULL,
+  `numberOfDays` int(2) NOT NULL,
+  `preço` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+INSERT INTO `reservas` (`id`, `checkIn`, `checkOut`, `pacote`, `dailyRate`, `numberOfDays`, `preço`) VALUES
+(3, '2023-12-20', '2023-12-25', 'basico', 660, 6, 3959);
+
+-- --------------------------------------------------------

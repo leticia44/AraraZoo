@@ -68,7 +68,7 @@ include_once("templates/header.php");
     </div>
     <div class="right-content8">
         <h1>Tigres siberiano</h1>
-        <p> Nosso casal de tigres, Lara e Lucas, foram resgatados juntos com a Anta, porem ja haviam vivido na natureza antes, então estamos fazendo um trabalho para reecolocar eles na natureza, onde é seu lugar.</p>
+        <p> Nosso casal de tigres, Lara e Lucas, foram resgatados juntos com a Anta, porem ja haviam vivido na natureza antes, então estamos fazendo um trabalho para recolocar eles na natureza, onde é seu lugar.</p>
     </div>
 </div>
 </div>
